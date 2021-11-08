@@ -67,7 +67,14 @@ class MainActivity : AppCompatActivity() {
     private fun fillTimeColumn(){
         val columnsCount = if (todayTasks.count() > 0) todayTasks.count() else 1
         for (hour in 0 until hoursCount - 1){
-            fillCell(rowsPerHour*hour, 0, 4, hoursText.format(hour, hour+1))
+            fillCell(
+                rowsPerHour*hour,
+                0,
+                4,
+                hoursText.format(hour, hour+1),
+                false,
+                0.5f
+            )
             for (row in 0 until rowsPerHour){
                 for (taskIndex in 1..columnsCount) {
                     fillCell(hour * 4 + row, taskIndex, 1, "")
@@ -106,16 +113,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fillCell(
-        row:Int, column:Int, rowSize:Int, text:String, clickable:Boolean=false
+        row:Int,
+        column:Int,
+        rowSize:Int,
+        text:String,
+        clickable:Boolean=false,
+        columnWeight:Float=1f
     ): Button{
         val button = MaterialButton(this, null, R.attr.materialButtonOutlinedStyle)
-        val layoutParams =
-            GridLayout.LayoutParams(GridLayout.spec(row, rowSize), GridLayout.spec(column))
+        val layoutParams = GridLayout.LayoutParams(
+            GridLayout.spec(row, rowSize), GridLayout.spec(column, columnWeight)
+        )
         layoutParams.setGravity(Gravity.FILL)
         button.text = text
         button.setStrokeColorResource(R.color.cardview_dark_background)
         button.setBackgroundColor(Color.WHITE)
-        button.setTextColor(Color.RED)
+        button.setTextColor(Color.BLACK)
         button.isClickable = clickable
         layoutParams.marginEnd = 0
         layoutParams.marginStart = 0
