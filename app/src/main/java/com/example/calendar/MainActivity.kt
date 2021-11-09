@@ -1,31 +1,16 @@
 package com.example.calendar
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
 import android.widget.*
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginBottom
-import androidx.core.view.marginEnd
 import androidx.core.view.setMargins
-import androidx.core.view.setPadding
 import androidx.gridlayout.widget.GridLayout
-import com.example.calendar.TasksReader
 import com.google.android.material.button.MaterialButton
-import java.io.File
-import java.sql.Timestamp
 import java.time.*
-import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.math.ceil
 import kotlin.math.floor
 
 class MainActivity : AppCompatActivity() {
